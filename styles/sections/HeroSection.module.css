@@ -1,0 +1,363 @@
+/* ─── Section ───────────────────────────────────────────── */
+.section {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 2;
+  background: linear-gradient(
+    to bottom,
+    var(--hero-start) 0%,
+    var(--hero-mid) 55%,
+    var(--hero-end) 100%
+  );
+  overflow: hidden;
+}
+
+/* ─── Photo ─────────────────────────────────────────────── */
+.photo {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 55%;
+  z-index: 1;
+}
+
+.photoImg {
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* ─── Horizontal Social Row ───────────────────────────────── */
+.socialRow {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.socialRowLink {
+  color: var(--text-muted);
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.socialRowLink:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* ─── Left Content Column ────────────────────────────────── */
+.content {
+  position: absolute;
+  left: 4rem;
+  top: 15vh;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  cursor: default;
+  --hero-name-size: clamp(4rem, 8vw, 9rem);
+}
+
+.greeting {
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+}
+
+.greetText {
+  font-family: var(--font-baloo), sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--text-dark);
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+}
+
+.roleText {
+  font-family: var(--font-baloo), sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+}
+
+/* ─── Name Block ─────────────────────────────────────────── */
+.nameBlock {
+  display: flex;
+  flex-direction: column;
+  line-height: 0.88;
+}
+
+.name {
+  font-family: var(--font-baloo), sans-serif;
+  font-size: var(--hero-name-size);
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+  white-space: nowrap;
+}
+
+/* ─── Tag Pills ──────────────────────────────────────────── */
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.8rem;
+  max-width: 90%;
+}
+
+.pill {
+  font-family: var(--font-baloo), sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 9999px;
+  padding: 0.65rem 1.5rem;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  flex: 1;
+  text-align: center;
+}
+
+.pillDot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+/* ─── View Projects Button ───────────────────────────────── */
+.viewBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--accent);
+  color: #ffffff;
+  font-family: var(--font-baloo), sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 0.65rem 1.6rem;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  align-self: flex-start;
+  letter-spacing: 0.01em;
+}
+
+.viewBtn:hover {
+  background: var(--accent-hover);
+}
+
+.viewBtn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ── CTA button row ──────────────────────────────────────── */
+.ctaBtns {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* ── CV Download Button ──────────────────────────────────── */
+.cvBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-baloo), sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 0.65rem 1.4rem;
+  border-radius: 9999px;
+  border: 1.5px solid var(--text-primary);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+
+.cvBtn:hover {
+  background: var(--text-primary);
+  color: #ffffff;
+}
+
+.cvBtn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ─── Stats Row ──────────────────────────────────────────── */
+.stats {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: 0.4rem;
+}
+
+.statCard {
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0.75rem;
+  padding: 0.55rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+  min-width: 6rem;
+}
+
+.statValue {
+  font-family: var(--font-baloo), sans-serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1.2;
+}
+
+.statLabel {
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.025em;
+  line-height: 1.3;
+}
+
+/* ─── Cards Column ───────────────────────────────────────── */
+.cardsCol {
+  position: absolute;
+  right: 4rem;
+  bottom: 8vh;
+  width: clamp(210px, 19vw, 295px);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.taglineCard,
+.availCard {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 1rem;
+  padding: 1rem 1.2rem;
+}
+
+.taglineText {
+  font-family: var(--font-baloo), sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.45;
+  margin-bottom: 0.45rem;
+}
+
+.taglineAccent {
+  color: var(--accent);
+}
+
+.freelanceNote {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.availHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.35rem;
+}
+
+.availDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--status-available);
+  flex-shrink: 0;
+}
+
+.availStatus {
+  font-family: var(--font-baloo), sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.locationLine {
+  font-size: 0.66rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+  line-height: 1.7;
+}
+
+/* ─── Responsive: Mobile < 768px ────────────────────────── */
+@media (max-width: 767px) {
+  .section {
+    height: 100svh;
+    min-height: -webkit-fill-available;
+  }
+
+  .socialSidebar { display: none; }
+  .cardsCol      { display: none; }
+
+  .content {
+    left: 1.25rem;
+    top: 5rem;
+    gap: 0.5rem;
+    max-width: 58vw;
+    --hero-name-size: clamp(2rem, 8.5vw, 3.5rem);
+  }
+
+  .name { white-space: normal; }
+
+  .photo {
+    width: 72%;
+    height: 72svh;
+    top: auto;
+    bottom: 0;
+    right: 0;
+  }
+
+  .stats       { gap: 0.35rem; flex-wrap: wrap; }
+  .statCard    { padding: 0.4rem 0.7rem; min-width: 4.5rem; }
+  .statValue   { font-size: 0.82rem; }
+  .statLabel   { font-size: 0.52rem; }
+  .pills       { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; margin-top: 0.4rem; }
+  .pill        { font-size: 0.62rem; padding: 0.32rem 0.5rem; text-align: center; white-space: normal; flex: unset; }
+  .pillDot     { display: none; }
+  .ctaBtns     { gap: 0.5rem; }
+  .viewBtn     { font-size: 0.78rem; padding: 0.55rem 1.2rem; }
+  .cvBtn       { font-size: 0.75rem; padding: 0.5rem 1rem; }
+}
+
+@media (max-width: 374px) {
+  .photo   { width: 75%; height: 65svh; }
+  .content { top: 4.5rem; max-width: 60vw; }
+}
+
+/* ─── Responsive: Tablet 768–1023px ─────────────────────── */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .content     { left: 3rem; top: 18vh; max-width: 40vw; --hero-name-size: clamp(3rem, 7vw, 6rem); }
+  .photo       { width: 55%; }
+  .cardsCol    { left: 43%; top: 22vh; width: clamp(175px, 18vw, 240px); }
+  .socialSidebar { width: 2.25rem; }
+  .name        { white-space: normal; }
+}

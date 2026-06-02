@@ -1,0 +1,234 @@
+/* ── Section shell ──────────────────────────── */
+.section {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 1;
+  background: #050505;
+  overflow: hidden;
+}
+
+/* ── Video layers ───────────────────────────── */
+.bgVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(28px);
+  transform: scale(1.12);
+  opacity: 0.5;
+}
+
+.mainVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  z-index: 1;
+}
+
+/* ── Cinematic gradient overlay ─────────────── */
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.72) 0%,
+    rgba(0, 0, 0, 0.28) 50%,
+    rgba(0, 0, 0, 0.62) 100%
+  );
+}
+
+/* ── Landing text ───────────────────────────── */
+.heroContent {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 4rem;
+  pointer-events: none;
+}
+
+.eyebrow {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.name {
+  font-family: var(--font-baloo), sans-serif;
+  font-size: clamp(3.5rem, 7.5vw, 8rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 0.88;
+  letter-spacing: -0.02em;
+}
+
+.role {
+  font-size: clamp(0.75rem, 1.1vw, 0.95rem);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 1.25rem;
+}
+
+/* ── Paused overlay ─────────────────────────── */
+.playOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.32);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.playOverlay:hover {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.playOverlay:hover circle {
+  stroke: rgba(255, 255, 255, 0.85);
+}
+
+/* ── Sound hint badge ───────────────────────── */
+.soundHint {
+  position: absolute;
+  bottom: 5.5rem;
+  right: 2rem;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  pointer-events: all;
+  cursor: pointer;
+  user-select: none;
+}
+
+.soundPulse {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.soundPulse::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent);
+  animation: hintPulse 1.6s ease-out infinite;
+}
+
+@keyframes hintPulse {
+  0%   { transform: scale(1); opacity: 0.9; }
+  100% { transform: scale(2.8); opacity: 0; }
+}
+
+/* ── Controls bar ───────────────────────────── */
+.controls {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ctrlBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.ctrlBtn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #fff;
+}
+
+/* ── Scroll cue ─────────────────────────────── */
+.scrollCue {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  pointer-events: all;
+  transition: color 0.2s;
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
+.scrollCue:hover {
+  color: #fff;
+}
+
+.scrollLabel {
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 38px;
+  background: currentColor;
+  animation: scrollPulse 1.8s ease-in-out infinite;
+  transform-origin: top;
+}
+
+@keyframes scrollPulse {
+  0%   { transform: scaleY(0); opacity: 0; }
+  40%  { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(1); opacity: 0; }
+}
+
+@media (max-width: 767px) {
+  .heroContent { padding: 0 1.5rem; }
+  .name        { font-size: clamp(2.8rem, 11vw, 5rem); }
+  .controls    { bottom: 1.5rem; right: 1rem; }
+  .scrollCue   { bottom: 1.5rem; }
+  .soundHint   { bottom: 4.5rem; right: 1rem; }
+  .bgVideo     { display: none; }
+}

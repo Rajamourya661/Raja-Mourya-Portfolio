@@ -1,0 +1,265 @@
+{
+  "name": {
+    "first": "Raja",
+    "last": "Mourya",
+    "full": "Raja Mourya"
+  },
+  "email": "rajamourya915@gmail.com",
+  "tagline": "Securing digital assets and solving complex threats through VAPT & DFIR.",
+  "description": "Cybersecurity & Digital Forensics professional specializing in VAPT, DFIR, and web application security.",
+  "roles": {
+    "short": "Cybersecurity Professional",
+    "detailed": "VAPT · Digital Forensics (DFIR) · AI Security"
+  },
+  "location": {
+    "based": "Vadodara, Gujarat",
+    "availability": "Worldwide"
+  },
+  "available": true,
+  "bio": "I am a Freelance Cybersecurity Consultant specializing in Vulnerability Assessment and Penetration Testing (VAPT) and Digital Forensics. I help organizations identify and fix security flaws before attackers can exploit them. With practical experience from the Cyber Crime Police Station and high global rankings on TryHackMe (Top 1%), I focus on delivering actionable security solutions to protect sensitive data.",
+  "stats": [
+    { "value": "Top 1%",  "label": "TryHackMe Global" },
+    { "value": "Top 3%", "label": "HackTheBox Global" },
+    { "value": "Freelance", "label": "VAPT Consultant" }
+  ],
+  "skills": [
+    "VAPT Specialist",
+    "Digital Forensics",
+    "DFIR & IR",
+    "Penetration Testing",
+    "OWASP Top 10",
+    "Reconnaissance",
+    "Active Directory",
+    "Malware Analysis",
+    "AI Cybersecurity",
+    "Kali Linux",
+    "Burp Suite",
+    "Python / FastAPI"
+  ],
+  "experience": [
+    {
+      "id": 1,
+      "role": "Freelance Cyber Security Consultant",
+      "company": "Self-Employed",
+      "companyShort": "FREELANCE",
+      "type": "Self-employed",
+      "location": "Vadodara, Gujarat · Remote",
+      "period": "Feb 2026",
+      "periodEnd": "Present",
+      "bullets": [
+        "Providing freelance services in Vulnerability Assessment and Penetration Testing (VAPT), Web Application Security, and Digital Forensics.",
+        "Conducting security assessments, vulnerability analysis, reconnaissance, and OSINT investigations.",
+        "Preparing technical reports with findings, risk assessments, and remediation recommendations."
+      ],
+      "desc": "Working as an independent Cyber Security Consultant specializing in Vulnerability Assessment and Penetration Testing (VAPT), Web Application Security, and Digital Forensics. I conduct comprehensive security audits, perform rigorous OSINT investigations, and deliver detailed technical reports with actionable remediation strategies to help organizations strengthen their security posture.",
+      "tech": [
+        "Burp Suite",
+        "Nmap",
+        "Metasploit",
+        "OWASP ZAP",
+        "OSINT",
+        "Wireshark"
+      ]
+    },
+    {
+      "id": 2,
+      "role": "Cyber Security Analyst",
+      "company": "Vadodara Cyber Cell",
+      "companyShort": "CYBER CELL",
+      "type": "Internship",
+      "location": "Vadodara, Gujarat",
+      "period": "Jul 2025",
+      "periodEnd": "Dec 2025",
+      "bullets": [
+        "Conducted end-to-end VAPT engagements including reconnaissance, exploitation, and reporting using Burp Suite, Nmap, Metasploit, and OWASP methodologies.",
+        "Identified critical vulnerabilities including SQL Injection (SQLi), Cross-Site Scripting (XSS), IDOR, and broken authentication during web application assessments.",
+        "Performed forensic evidence acquisition, malware analysis, and cyber fraud investigations for digital forensic cases.",
+        "Prepared professional penetration testing reports with severity ratings, PoC evidence, and remediation recommendations."
+      ],
+      "desc": "Led end-to-end VAPT engagements at the Vadodara Cyber Cell, utilizing advanced tools to uncover critical vulnerabilities like SQLi, XSS, and IDOR. Concurrently managed complex digital forensics cases, performing meticulous evidence acquisition, malware analysis, and cyber fraud investigations to produce high-impact forensic reports.",
+      "tech": [
+        "Burp Suite",
+        "Nmap",
+        "Metasploit",
+        "OWASP ZAP",
+        "Autopsy",
+        "FTK Imager",
+        "Volatility"
+      ]
+    },
+    {
+      "id": 3,
+      "role": "Administrative Executive",
+      "company": "Parul University",
+      "companyShort": "PARUL UNIV",
+      "type": "Part-time",
+      "location": "Vadodara, Gujarat",
+      "period": "Dec 2023",
+      "periodEnd": "Jun 2025",
+      "bullets": [
+        "Managed database administration, system operations, and data management workflows for academic and administrative units.",
+        "Streamlined operational efficiency, documentation, data verification, and secure information storage."
+      ],
+      "desc": "Oversaw comprehensive database administration and system operations for administrative units. Spearheaded data management workflows, implemented secure information storage protocols, and streamlined operational efficiency to ensure high data integrity and seamless daily operations.",
+      "tech": [
+        "Database Admin",
+        "Data Management",
+        "SQL",
+        "System Operations",
+        "Documentation"
+      ]
+    },
+    {
+      "id": 4,
+      "role": "Cyber Security Intern",
+      "company": "Cyber Crime Police Station",
+      "companyShort": "CYBER CRIME",
+      "type": "Internship",
+      "location": "Thane, Maharashtra",
+      "period": "May 2021",
+      "periodEnd": "Jul 2021",
+      "bullets": [
+        "Assisted in real-world cybercrime investigations, focusing on phishing, online fraud, and identity theft.",
+        "Collaborated with cyber officers to collect and analyze evidence for ongoing cases.",
+        "Engaged in threat identification, enhancing the team's ability to combat cybercrime effectively."
+      ],
+      "desc": "Assisted law enforcement officials in high-stakes, real-world cybercrime investigations at the Thane Cyber Crime Police Station. Focused on tracing digital footprints in cases involving phishing and financial fraud, actively collaborating with senior officers to collect critical forensic evidence.",
+      "tech": [
+        "Digital Forensics",
+        "Computer Forensics",
+        "OSINT",
+        "Evidence Analysis"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "KAVACH AI Pro",
+      "subtitle": "India Innovates 2026 National Finalist · Mar – May 2026",
+      "type": "AI Cybersecurity",
+      "link": "https://github.com/Rajamourya661/Ai-Kavach-Pro",
+      "image": "/assets/kavach_ai_portfolio_banner.svg",
+      "tech": ["PyTorch", "ResNet-50", "FastAPI", "React", "MongoDB Atlas", "Docker", "Redis", "IndicBERT"],
+      "desc": "Developed KAVACH AI, an AI-powered cybersecurity platform designed to detect deepfake videos, AI voice fraud, and multilingual phishing attacks. Led system architecture, backend security workflows, and AI integration using FastAPI, React, MongoDB, Docker, and machine learning models for real-time threat detection. Recognized as a National Finalist at India Innovates 2026."
+    },
+    {
+      "id": 2,
+      "title": "AI Bug Hunter Pro",
+      "subtitle": "Automated VAPT Framework · Jan – Dec 2025",
+      "type": "Security Tool",
+      "link": "https://github.com/Rajamourya661/Ai-Bughunter",
+      "image": "/assets/ai-bughunter.png",
+      "tech": ["Python", "Burp Suite", "OWASP ZAP", "FastAPI", "Docker", "JSON Reporting"],
+      "desc": "Developed an automated penetration testing and vulnerability assessment framework. Implemented detection modules for 55+ vulnerability types including SQLi, XSS, IDOR, SSRF, JWT issues, GraphQL flaws, and cloud misconfigurations. Integrated adaptive rate limiting, scope enforcement, and Burp/ZAP proxy support."
+    }
+  ],
+  "research": [
+    {
+      "id": 1,
+      "title": "Security of Bluetooth in Wearable Devices",
+      "platform": "IJSREM Journal",
+      "year": "2026",
+      "link": "https://ijsrem.com/",
+      "desc": "Published research proposing a lightweight hybrid cryptographic framework (ECDH, AES-GCM, HMAC, ECDSA) for securing healthcare IoT wearable devices."
+    }
+  ],
+  "publications": [
+    {
+      "id": 1,
+      "title": "Certified Ethical Hacker (CEH)",
+      "platform": "EC-Council",
+      "year": "2025",
+      "link": "https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/",
+      "desc": "Global gold standard for ethical hacking and vulnerability assessment, validating mastery of core security concepts and penetration testing methodologies."
+    },
+    {
+      "id": 2,
+      "title": "Blue Team Junior Analyst (BJA)",
+      "platform": "Security Blue Team",
+      "year": "2025",
+      "link": "https://www.securityblue.team/",
+      "desc": "Defensive security certification covering SIEM analysis, threat intelligence, digital forensics, incident response, and network traffic analysis."
+    },
+    {
+      "id": 3,
+      "title": "CNSP",
+      "platform": "The SecOps Group",
+      "year": "2025",
+      "link": "https://secops.group/",
+      "desc": "Certified Network Security Practitioner — validating expertise in network security, penetration testing, and security architecture."
+    },
+    {
+      "id": 4,
+      "title": "Digital Forensics Essentials (DFE)",
+      "platform": "EC-Council",
+      "year": "2025",
+      "link": "https://codered.eccouncil.org/course/digital-forensics-essentials",
+      "desc": "Fundamental training in computer forensics, evidence acquisition, recovery, and analysis of cybercrime scenes."
+    },
+    {
+      "id": 5,
+      "title": "Linux Certified Investigator",
+      "platform": "CSI Linux",
+      "year": "2025",
+      "link": "https://csilinux.com/",
+      "desc": "Specialized training focused on Linux-based threat intelligence, memory forensics, incident response, and malicious activity analysis."
+    },
+    {
+      "id": 6,
+      "title": "Digital Forensics Certification",
+      "platform": "Charles Sturt University",
+      "year": "2024",
+      "link": "https://www.csu.edu.au/",
+      "desc": "Comprehensive academic and practical exploration of digital forensics, malware investigation, chain of custody, and forensic reporting."
+    }
+  ],
+  "achievements": [
+    {
+      "id": 1,
+      "title": "Top 1% Worldwide",
+      "platform": "TryHackMe",
+      "year": "2026",
+      "image": "/assets/Achievements/thm rank photo.png",
+      "desc": "Ranked among the Top 1% of cybersecurity professionals globally. Demonstrated hands-on expertise by successfully completing 125+ advanced attack and defense rooms while earning 15 mastery badges."
+    },
+    {
+      "id": 2,
+      "title": "3rd Position",
+      "platform": "HASBL CTF",
+      "year": "2026",
+      "image": "/assets/Achievements/THM top 3.png",
+      "desc": "Secured a remarkable 3rd place podium finish in the highly competitive HASBL Capture The Flag event. Solved complex challenges spanning cryptography, reverse engineering, and web exploitation."
+    },
+    {
+      "id": 3,
+      "title": "4th Position",
+      "platform": "Sudo Override CTF",
+      "year": "2026",
+      "image": "/assets/Achievements/4th rank  iit patna.png",
+      "desc": "Achieved 4th position nationally in the rigorous Sudo Override CTF Challenge organized by NJACK, IIT Patna. Showcased rapid problem-solving skills under high-pressure simulated attack scenarios."
+    },
+    {
+      "id": 4,
+      "title": "4th Place",
+      "platform": "VNR Design-A-Thon",
+      "year": "2026",
+      "image": "/assets/Achievements/4th rank vnr colleage.png",
+      "desc": "Secured 4th rank among all participating engineering teams in the prestigious VNR Design-A-Thon 2026. Architected and pitched innovative, security-focused software solutions."
+    },
+    {
+      "id": 5,
+      "title": "National Finalist",
+      "platform": "India Innovates",
+      "year": "2026",
+      "image": "/assets/kavach_ai_portfolio_banner.svg",
+      "desc": "Recognized as a National Finalist at India Innovates 2026. Served as the Team Leader and System Architect for KAVACH AI, spearheading the development of an advanced threat-detection platform."
+    }
+  ],
+  "socials": [
+    { "label": "GitHub",      "href": "https://github.com/Rajamourya661" },
+    { "label": "LinkedIn",    "href": "https://www.linkedin.com/in/raja-mourya-156a50263" },
+    { "label": "TryHackMe",  "href": "https://tryhackme.com/p/blackbox273" },
+    { "label": "HackTheBox", "href": "https://profile.hackthebox.com/profile/019e7b37-a6c7-725e-b107-e1086a15f389" }
+  ]
+}

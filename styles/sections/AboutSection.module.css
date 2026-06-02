@@ -1,0 +1,230 @@
+.section {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 3;
+  background: #fff;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  overflow: hidden;
+}
+
+/* ── Left column ───────────────────────────── */
+
+.photoCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 8rem 1.5rem 2.5rem 2.5rem;
+  overflow: visible;
+}
+
+/* Wrapper holds frame + overlapping signature */
+.photoWrap {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  max-height: 72vh;
+}
+
+/* Photo frame */
+.photoFrame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.photoImg {
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* Signature - overlaps bottom-right corner of photo */
+.signature {
+  position: absolute;
+  bottom: 0rem;
+  right: -5rem;
+  font-family: var(--font-dancing), cursive;
+  color: var(--accent);
+  font-size: 5.5rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  transform: rotate(-10deg);
+  transform-origin: right bottom;
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* Social icons */
+.socials {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  align-items: center;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: rgba(247, 147, 30, 0.08);
+  border: 1px solid rgba(247, 147, 30, 0.25);
+  color: var(--accent);
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.socialLink:hover {
+  background: var(--accent);
+  color: #fff;
+  transform: translateY(-3px) scale(1.12);
+  border-color: var(--accent);
+}
+
+/* ── Right column ──────────────────────────── */
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 4rem 4rem 3rem;
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* Who I Am label */
+.whoLabel {
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.6rem 0;
+  flex-shrink: 0;
+}
+
+/* Who I Am - infinite marquee */
+.marqueeWrap {
+  overflow: hidden;
+  margin-bottom: 2rem;
+  flex-shrink: 0;
+  mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
+
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 18s linear infinite;
+}
+
+.marqueeItem {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #888;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.marqueeDot {
+  color: var(--accent);
+  font-size: 1rem;
+  line-height: 1;
+  margin: 0 0.4rem;
+}
+
+@keyframes marqueeScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.bioWrap {
+  overflow: hidden;
+}
+
+.bio {
+  font-size: clamp(1rem, 1.6vw, 1.6rem);
+  font-weight: 800;
+  line-height: 1.42;
+  color: #111;
+  margin: 0;
+  width: 100%;
+}
+
+.typed    { color: #111; }
+.untyped  { color: #c8c8c8; }
+
+/* Cursor lives as ::after on the last typed char - never a sibling node,
+   so it cannot shift adjacent text or change line-wrap decisions. */
+.lastTyped {
+  color: #111;
+}
+.lastTyped::after {
+  content: '';
+  display: inline-block;
+  width: 2px;
+  height: 0.85em;
+  background: var(--accent);
+  margin-left: 2px;
+  margin-right: -4px;   /* absorb its own width */
+  vertical-align: text-bottom;
+  animation: blink 0.75s step-end infinite;
+}
+
+.cursor {
+  display: none; /* kept to avoid breaking any lingering references */
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@media (max-width: 767px) {
+  .content {
+    justify-content: start;
+  }
+
+  .section {
+    grid-template-columns: 1fr;
+    grid-template-rows: 60svh 1fr;
+    height: 100svh;
+    min-height: -webkit-fill-available;
+    overflow: hidden;
+  }
+  .photoCol {
+    padding: 3.5rem 1rem 0.5rem;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 0.75rem;
+    overflow: visible;
+  }
+  .photoWrap    { flex: 1; max-height: 100%; align-self: stretch; height: 100%; }
+  .socials      { flex-direction: column; margin-top: 0; gap: 0.4rem; }
+  .socialLink   { width: 2rem; height: 2rem; font-size: 1rem; }
+  .content      { padding: 1rem 1.25rem 0.75rem; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+  .bio          { font-size: clamp(0.72rem, 3vw, 0.95rem); }
+  .marqueeWrap  { margin-bottom: 0.6rem; }
+  .whoLabel     { font-size: 0.8rem; margin-bottom: 0.3rem; }
+  .signature    { font-size: 3rem; bottom: -1rem; right: -0.5rem; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .section    { grid-template-columns: 35% 65%; }
+  .photoCol   { padding: 5rem 1rem 2rem 1.5rem; }
+  .content    { padding: 3rem 2rem 2rem; }
+  .bio        { font-size: clamp(0.85rem, 1.4vw, 1.2rem); }
+  .signature  { font-size: 4rem; }
+}

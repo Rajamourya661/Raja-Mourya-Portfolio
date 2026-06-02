@@ -1,0 +1,299 @@
+/* ── Section ─────────────────────────────────── */
+.section {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 4;
+  background: #0d0d0d;
+  overflow: hidden;
+}
+
+/* ── Top bar ─────────────────────────────────── */
+.topBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(4rem, 7vh, 5rem) clamp(1.5rem, 5vw, 4.5rem) 0;
+  pointer-events: none;
+}
+
+.sectionLabel {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.counter {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+}
+
+.cCur { color: #fff; font-weight: 700; }
+.cSep { color: rgba(255, 255, 255, 0.22); }
+.cTot { color: rgba(255, 255, 255, 0.28); }
+
+/* ── Horizontal track ────────────────────────── */
+.track {
+  display: flex;
+  height: 100vh;
+  will-change: transform;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Single slide ────────────────────────────── */
+.slide {
+  width: 100vw;
+  height: 100vh;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Slide background ────────────────────────── */
+.slideBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.slideImg {
+  object-fit: cover;
+  object-position: center 20%;
+  transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.slide:hover .slideImg {
+  transform: scale(1.04);
+}
+
+.slideOverlayLeft {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    108deg,
+    rgba(4, 4, 4, 0.96) 0%,
+    rgba(4, 4, 4, 0.65) 42%,
+    rgba(4, 4, 4, 0.28) 100%
+  );
+  z-index: 1;
+}
+
+.slideOverlayBottom {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(4, 4, 4, 0.97) 0%,
+    rgba(4, 4, 4, 0.45) 40%,
+    transparent 65%
+  );
+  z-index: 2;
+}
+
+.slideVignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 65% 45%, transparent 30%, rgba(0, 0, 0, 0.55) 100%);
+  z-index: 2;
+}
+
+/* ── Decorative slide number ─────────────────── */
+.slideNum {
+  position: absolute;
+  right: clamp(1.5rem, 5vw, 4rem);
+  bottom: clamp(5rem, 9vh, 8rem);
+  font-size: clamp(5rem, 12vw, 11rem);
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.03);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  z-index: 2;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ── Slide content ───────────────────────────── */
+.slideContent {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: grid;
+  grid-template-columns: minmax(0, 44%) minmax(0, 1fr);
+  align-items: flex-end;
+  padding:
+    clamp(5rem, 9vh, 8rem)
+    clamp(1.5rem, 5vw, 4.5rem)
+    clamp(4.5rem, 8vh, 7rem);
+  gap: clamp(1.5rem, 3vw, 3.5rem);
+  overflow: hidden;
+  will-change: transform, opacity;
+}
+
+/* ── Left: identity ──────────────────────────── */
+.slideLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  min-width: 0;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.typeTag {
+  font-size: var(--text-small);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(247, 147, 30, 0.1);
+  border: 1px solid rgba(247, 147, 30, 0.25);
+  padding: 0.18rem 0.52rem;
+  border-radius: 4px;
+}
+
+.title {
+  font-size: clamp(2.2rem, 5.5vw, 5rem);
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -0.03em;
+  line-height: 0.92;
+  margin: 0;
+  text-transform: uppercase;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.subtitle {
+  font-size: var(--text-small);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.36);
+  margin: 0;
+  letter-spacing: 0.06em;
+}
+
+/* ── Live demo button ────────────────────────── */
+.liveBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #000;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  width: fit-content;
+  margin-top: 0.4rem;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.liveBtn:hover {
+  background: var(--accent-hover, #e07b10);
+  transform: translateY(-1px);
+}
+
+/* ── Right: desc + stack ─────────────────────── */
+.slideRight {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.desc {
+  font-size: var(--text-body);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.52);
+  margin: 0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.tag {
+  font-size: var(--text-small);
+  font-weight: 600;
+  padding: 0.2rem 0.52rem;
+  border-radius: 4px;
+  background: rgba(247, 147, 30, 0.08);
+  color: var(--accent);
+  border: 1px solid rgba(247, 147, 30, 0.18);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+/* ── Bottom progress ─────────────────────────── */
+.bottomUI {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  padding: 0 clamp(1.5rem, 5vw, 4.5rem) clamp(1.2rem, 2.5vh, 2rem);
+  pointer-events: none;
+}
+
+.progressTrack {
+  height: 2px;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.progressBar {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, var(--accent), #ffb347);
+  transform: scaleX(0);
+  transform-origin: left center;
+  will-change: transform;
+}
+
+/* ── Mobile ──────────────────────────────────── */
+@media (max-width: 767px) {
+  .slideContent {
+    grid-template-columns: 1fr;
+    align-items: flex-end;
+    gap: 1rem;
+  }
+
+  .slideRight { display: none; }
+  .title      { font-size: 1.8rem; }
+  .slideNum   { font-size: 5rem; bottom: 5rem; }
+}
+
+/* ── Mobile landscape / small tablet ────────── */
+@media (min-width: 480px) and (max-width: 767px) {
+  .slideRight { display: flex; }
+  .slideContent { grid-template-columns: minmax(0, 42%) minmax(0, 1fr); }
+  .desc { font-size: 0.88rem; }
+}
+
+/* ── Tablet ──────────────────────────────────── */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .slideContent { grid-template-columns: minmax(0, 45%) minmax(0, 1fr); }
+  .title { font-size: 2.6rem; }
+}

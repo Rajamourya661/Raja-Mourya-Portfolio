@@ -1,0 +1,586 @@
+/* ═══════════════════════════════════════════════════════════
+   AI Assistant – Cyber Neon Glassmorphism Theme
+   Uses --accent (cyan #06b6d4) + purple (#a855f7) dual glow
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── Container ───────────────────────────────────────────── */
+.container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 9998;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+/* ─── Floating Bubble Button ──────────────────────────────── */
+.bubble {
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 50%;
+  background: rgba(6, 182, 212, 0.08);
+  border: 1.5px solid rgba(6, 182, 212, 0.5);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow:
+    0 0 20px rgba(6, 182, 212, 0.3),
+    0 0 60px rgba(168, 85, 247, 0.1),
+    inset 0 0 12px rgba(6, 182, 212, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  animation: bubblePulse 3s ease-in-out infinite;
+  position: relative;
+}
+
+.bubble::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    rgba(6, 182, 212, 0.4),
+    rgba(168, 85, 247, 0.3),
+    rgba(6, 182, 212, 0.1),
+    rgba(168, 85, 247, 0.3),
+    rgba(6, 182, 212, 0.4)
+  );
+  z-index: -1;
+  opacity: 0.5;
+  animation: bubbleRingRotate 6s linear infinite;
+  filter: blur(4px);
+}
+
+.bubble:hover {
+  transform: scale(1.1);
+  box-shadow:
+    0 0 30px rgba(6, 182, 212, 0.5),
+    0 0 80px rgba(168, 85, 247, 0.2),
+    inset 0 0 16px rgba(6, 182, 212, 0.1);
+}
+
+.bubble svg {
+  width: 1.3rem;
+  height: 1.3rem;
+  transition: transform 0.3s ease;
+}
+
+.bubble:hover svg {
+  transform: rotate(15deg) scale(1.05);
+}
+
+.bubbleIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes bubblePulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(6, 182, 212, 0.3), 0 0 60px rgba(168, 85, 247, 0.1); }
+  50% { box-shadow: 0 0 28px rgba(6, 182, 212, 0.45), 0 0 80px rgba(168, 85, 247, 0.18); }
+}
+
+@keyframes bubbleRingRotate {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Chat Window ─────────────────────────────────────────── */
+.window {
+  position: absolute;
+  bottom: 4.8rem;
+  right: 0;
+  width: clamp(340px, 90vw, 420px);
+  height: min(560px, 80vh);
+  background: rgba(2, 6, 23, 0.88);
+  border: 1px solid rgba(6, 182, 212, 0.12);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.7),
+    0 0 1px rgba(6, 182, 212, 0.5),
+    0 0 40px rgba(6, 182, 212, 0.06),
+    0 0 80px rgba(168, 85, 247, 0.04);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  transform-origin: bottom right;
+}
+
+/* Top gradient border */
+.window::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), #a855f7, var(--accent));
+  z-index: 2;
+}
+
+/* ─── Header ──────────────────────────────────────────────── */
+.header {
+  padding: 0.9rem 1.2rem;
+  background: rgba(6, 182, 212, 0.02);
+  border-bottom: 1px solid rgba(6, 182, 212, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Scanning line effect */
+.header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.04), transparent);
+  animation: headerScan 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes headerScan {
+  0% { left: -50%; }
+  100% { left: 150%; }
+}
+
+.headerInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.avatar {
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(168, 85, 247, 0.1));
+  border: 1.5px solid rgba(6, 182, 212, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-size: 0.85rem;
+  position: relative;
+}
+
+/* Pulse ring around avatar */
+.avatar::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  animation: avatarPing 2.5s ease-out infinite;
+}
+
+@keyframes avatarPing {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+.headerText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.03em;
+}
+
+.subtitle {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--status-available);
+  box-shadow: 0 0 6px rgba(34, 197, 94, 0.5);
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.closeBtn {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.3rem;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeBtn:hover {
+  color: var(--text-primary);
+  border-color: rgba(6, 182, 212, 0.2);
+  background: rgba(6, 182, 212, 0.05);
+}
+
+/* ─── Messages Area ───────────────────────────────────────── */
+.messages {
+  flex: 1;
+  padding: 1.1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+.messages::-webkit-scrollbar {
+  width: 3px;
+}
+.messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+.messages::-webkit-scrollbar-thumb {
+  background: rgba(6, 182, 212, 0.2);
+  border-radius: 99px;
+}
+.messages::-webkit-scrollbar-thumb:hover {
+  background: rgba(6, 182, 212, 0.4);
+}
+
+/* ─── Message Bubbles ─────────────────────────────────────── */
+.message {
+  display: flex;
+  flex-direction: column;
+  max-width: 85%;
+}
+
+.assistantMsg {
+  align-self: flex-start;
+}
+
+.userMsg {
+  align-self: flex-end;
+}
+
+.bubbleContent {
+  padding: 0.75rem 0.95rem;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  border-radius: 12px;
+  word-break: break-word;
+}
+
+.assistantMsg .bubbleContent {
+  background: rgba(6, 182, 212, 0.03);
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(6, 182, 212, 0.08);
+  border-bottom-left-radius: 3px;
+}
+
+.userMsg .bubbleContent {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(168, 85, 247, 0.08));
+  color: var(--text-primary);
+  border: 1px solid rgba(6, 182, 212, 0.18);
+  border-bottom-right-radius: 3px;
+}
+
+/* Message text formatting */
+.bubbleContent strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.messageTimestamp {
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.2);
+  margin-top: 0.3rem;
+  padding: 0 0.2rem;
+}
+
+.assistantMsg .messageTimestamp {
+  align-self: flex-start;
+}
+
+.userMsg .messageTimestamp {
+  align-self: flex-end;
+}
+
+/* ─── Suggested Chips ─────────────────────────────────────── */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.65rem 1.1rem;
+  border-top: 1px solid rgba(6, 182, 212, 0.05);
+}
+
+.chipsLabel {
+  width: 100%;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 0.2rem;
+}
+
+.chip {
+  background: rgba(6, 182, 212, 0.04);
+  border: 1px solid rgba(6, 182, 212, 0.12);
+  border-radius: 99px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.7rem;
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.chip:hover {
+  background: rgba(6, 182, 212, 0.1);
+  border-color: rgba(6, 182, 212, 0.4);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 12px rgba(6, 182, 212, 0.15);
+}
+
+.chip:active {
+  transform: translateY(0);
+}
+
+/* ─── Typing Indicator ────────────────────────────────────── */
+.typing {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.6rem 0.85rem;
+  background: rgba(6, 182, 212, 0.04);
+  border: 1px solid rgba(6, 182, 212, 0.06);
+  border-radius: 12px;
+  border-bottom-left-radius: 3px;
+  width: fit-content;
+  align-self: flex-start;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: typingBounce 1.4s infinite ease-in-out;
+  opacity: 0.5;
+}
+
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typingBounce {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.3; }
+  40% { transform: scale(1.2); opacity: 1; }
+}
+
+/* ─── Input Area ──────────────────────────────────────────── */
+.inputArea {
+  padding: 0.75rem 1.1rem;
+  border-top: 1px solid rgba(6, 182, 212, 0.06);
+  display: flex;
+  gap: 0.5rem;
+  background: rgba(2, 6, 23, 0.5);
+  align-items: center;
+}
+
+.input {
+  flex: 1;
+  background: rgba(6, 182, 212, 0.03);
+  border: 1px solid rgba(6, 182, 212, 0.1);
+  border-radius: 10px;
+  padding: 0.6rem 0.85rem;
+  color: var(--text-primary);
+  font-size: 0.78rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.input:focus {
+  border-color: rgba(6, 182, 212, 0.4);
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.08), 0 0 20px rgba(6, 182, 212, 0.06);
+}
+
+.sendBtn {
+  background: linear-gradient(135deg, var(--accent), #a855f7);
+  border: none;
+  border-radius: 10px;
+  width: 2.3rem;
+  height: 2.3rem;
+  min-width: 2.3rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 0 16px rgba(6, 182, 212, 0.2);
+}
+
+.sendBtn:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 24px rgba(6, 182, 212, 0.35);
+}
+
+.sendBtn:active {
+  transform: scale(0.96);
+}
+
+.sendBtn:disabled {
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.2);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.sendBtn svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* ─── Quick Action Buttons (in messages) ──────────────────── */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.55rem;
+}
+
+.actionBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: rgba(6, 182, 212, 0.05);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  border-radius: 8px;
+  color: var(--accent);
+  font-size: 0.7rem;
+  padding: 0.3rem 0.55rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  font-family: inherit;
+}
+
+.actionBtn:hover {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(168, 85, 247, 0.1));
+  border-color: var(--accent);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(6, 182, 212, 0.15);
+}
+
+.actionBtn:active {
+  transform: translateY(0);
+}
+
+/* Chip-type action (inline suggestion in response) */
+.actionChip {
+  composes: actionBtn;
+  border-style: dashed;
+}
+
+/* ─── Welcome Message Decoration ──────────────────────────── */
+.welcomeMsg .bubbleContent {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.06), rgba(168, 85, 247, 0.04));
+  border-color: rgba(6, 182, 212, 0.12);
+}
+
+/* ─── Responsive ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .container {
+    bottom: 1.25rem;
+    right: 1.25rem;
+  }
+
+  .window {
+    position: fixed;
+    bottom: 5rem;
+    right: 1.25rem;
+    width: calc(100vw - 2.5rem);
+    height: min(500px, 72vh);
+  }
+
+  .chips {
+    max-height: 85px;
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    bottom: 0.75rem;
+    right: 0.75rem;
+  }
+
+  .bubble {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+
+  .window {
+    bottom: 4.5rem;
+    right: 0.75rem;
+    width: calc(100vw - 1.5rem);
+    height: min(460px, 70vh);
+    border-radius: 12px;
+  }
+
+  .bubbleContent {
+    font-size: 0.76rem;
+    padding: 0.65rem 0.85rem;
+  }
+
+  .chip {
+    font-size: 0.65rem;
+    padding: 0.3rem 0.55rem;
+  }
+}
+
+/* ─── Reduced motion ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .bubble,
+  .bubble::before,
+  .header::after,
+  .avatar::after,
+  .dot,
+  .statusDot {
+    animation: none;
+  }
+
+  .chip:hover,
+  .actionBtn:hover {
+    transform: none;
+  }
+}

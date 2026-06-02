@@ -1,0 +1,22 @@
+{
+  "site": {
+    "tagline": "Portfolio 2026"
+  },
+  "hero": {
+    "taglineHighlight": "VAPT & DFIR",
+    "freelanceNote": "Available for VAPT engagements & full-time roles.",
+    "availableLabel": "Available for work",
+    "pills": ["VAPT Specialist", "Digital Forensics", "DFIR & IR", "AI Cybersecurity"],
+    "specialistStat": { "value": "VAPT + DFIR", "label": "Specialist" }
+  },
+  "interstitial": {
+    "availabilityLabel": "Availability",
+    "basedInLabel": "Based in",
+    "statLabels": ["TryHackMe\nGlobal", "HackTheBox\nGlobal", "VAPT\nConsultant"]
+  },
+  "footer": {
+    "eyebrow": "Open to collaborations",
+    "ctaLines": ["Let's make your", "systems harder", "to"],
+    "ctaAccent": "break."
+  }
+}

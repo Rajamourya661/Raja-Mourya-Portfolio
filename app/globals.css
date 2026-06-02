@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+/* ─── Brand tokens ─────────────────────────────────────── */
+:root {
+  /* Deep Ocean Theme */
+  --hero-start: #0f172a;
+  --hero-mid:   #1e3a8a;
+  --hero-end:   #0891b2;
+
+  /* Accent */
+  --accent:       #06b6d4;
+  --accent-hover: #22d3ee;
+
+  /* Text */
+  --text-primary: #f8fafc;
+  --text-muted:   #94a3b8;
+  --text-on-dark: #f8fafc;
+
+  /* Surfaces */
+  --surface-white: #020617;
+  --surface-black: #000000;
+  --surface-amber: #0f172a;
+
+  /* Status */
+  --status-available: #22c55e;
+
+  /* Text dark token */
+  --text-dark: #f8fafc;
+
+  /* Navbar */
+  --navbar-text:    #f8fafc;
+  --email-btn-bg:   #06b6d4;
+  --email-btn-text: #ffffff;
+
+  /* Type scale */
+  --hero-name-size: clamp(4.5rem, 13vw, 12rem);
+  --text-body:  clamp(0.9rem, 1.2vw, 1.05rem);
+  --text-small: 0.72rem;
+  --hero-role-size: clamp(0.75rem, 1.2vw, 0.875rem);
+
+  /* ─── shadcn var bridge (maps to brand tokens) ── */
+  --background:   var(--surface-white);
+  --foreground:   var(--text-primary);
+  --primary:      var(--text-primary);
+  --primary-foreground: var(--surface-white);
+  --ring:         var(--accent);
+  --radius:       9999px;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* ─── Base ──────────────────────────────────────────────── */
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: var(--background);
+  color:      var(--foreground);
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+}
+
+/* ─── Hide scrollbar ─────────────────────────────────────── */
+main::-webkit-scrollbar { display: none; }
+main { scrollbar-width: none; -ms-overflow-style: none; }
+
+@media (max-width: 767px) {
+  :root {
+    --hero-name-size: clamp(3rem, 10vw, 5rem);
+  }
+
+  /* Override inline 100vh - Chrome mobile toolbar hides bottom content */
+  html, body { height: 100svh !important; }
+  main { height: 100svh !important; }
+}

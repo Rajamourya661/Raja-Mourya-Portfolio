@@ -1,0 +1,314 @@
+/* ── Section ───────────────────────────────────── */
+.section {
+  height: 100vh;
+  background: #080808;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  z-index: 5;
+}
+
+.section::before {
+  content: 'EXPERIENCE';
+  position: absolute;
+  bottom: -0.06em;
+  right: -0.04em;
+  font-size: clamp(5rem, 11vw, 13rem);
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.022);
+  letter-spacing: -0.05em;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* ── Background image ──────────────────────────── */
+.bgImg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.bgImgEl {
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.07;
+}
+
+/* ── Header ────────────────────────────────────── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(4rem, 7vh, 5rem) clamp(1.5rem, 5vw, 4.5rem) 0;
+  flex-shrink: 0;
+}
+
+.label {
+  font-size: var(--text-small);
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.labelRight {
+  font-size: var(--text-small);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.2);
+  font-family: var(--font-geist-mono), monospace;
+}
+
+/* ── Timeline area ─────────────────────────────── */
+.timeline {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 clamp(1.5rem, 5vw, 4.5rem) clamp(2rem, 5vh, 4rem);
+  overflow: visible;
+}
+
+/* Relative wrapper for absolute snake line */
+.timelineBody {
+  position: relative;
+}
+
+/* ── Snake line ─────────────────────────────────── */
+.snakeLine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 26px;           /* center of 52px dot */
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--accent) 6%,
+    rgba(247, 147, 30, 0.55) 50%,
+    rgba(247, 147, 30, 0.2) 94%,
+    transparent 100%
+  );
+  box-shadow: 0 0 12px rgba(247, 147, 30, 0.28);
+  transform-origin: left center;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Entries row ────────────────────────────────── */
+.entries {
+  display: flex;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: flex-start;
+  position: relative;
+  z-index: 1;
+}
+
+.entry {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── Numbered dot ───────────────────────────────── */
+.dot {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #0c0c0c;
+  border: 2px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  box-shadow:
+    0 0 0 6px rgba(247, 147, 30, 0.05),
+    0 0 22px rgba(247, 147, 30, 0.1);
+}
+
+/* Vertical connector - dot → card */
+.dot::after {
+  content: '';
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: clamp(1rem, 2.5vh, 2rem);
+  background: linear-gradient(to bottom, rgba(247, 147, 30, 0.6), transparent);
+}
+
+.dotNum {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--accent);
+  font-family: var(--font-geist-mono), monospace;
+  letter-spacing: 0.06em;
+}
+
+/* ── Card content ───────────────────────────────── */
+.card {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: clamp(1rem, 2.5vh, 2rem);
+}
+
+.cardHead {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.period {
+  font-size: var(--text-small);
+  font-weight: 700;
+  color: var(--accent);
+  font-family: var(--font-geist-mono), monospace;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.typeTag {
+  font-size: var(--text-small);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.38);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.1rem 0.38rem;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.location {
+  font-size: var(--text-small);
+  color: rgba(255, 255, 255, 0.2);
+  font-weight: 500;
+}
+
+.company {
+  font-size: clamp(1.1rem, 2vw, 1.9rem);
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -0.025em;
+  line-height: 1.0;
+  margin: 0.1rem 0 0;
+  text-transform: uppercase;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.role {
+  font-size: var(--text-small);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.32);
+  margin: 0;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── Bullets ────────────────────────────────────── */
+.bullets {
+  list-style: none;
+  padding: 0.1rem 0 0 0.75rem;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  border-left: 2px solid rgba(247, 147, 30, 0.2);
+  min-width: 0;
+  overflow: hidden;
+  max-height: 5rem; /* GSAP expands on hover */
+}
+
+.bullet {
+  font-size: var(--text-body);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.44);
+  flex-shrink: 0;
+}
+
+/* ── Tech stack ─────────────────────────────────── */
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 0.2rem;
+}
+
+.tag {
+  font-size: var(--text-small);
+  font-weight: 600;
+  padding: 0.14rem 0.4rem;
+  border-radius: 3px;
+  background: rgba(247, 147, 30, 0.07);
+  color: rgba(247, 147, 30, 0.8);
+  border: 1px solid rgba(247, 147, 30, 0.16);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+/* ── Mobile (≤767px) ────────────────────────────── */
+@media (max-width: 767px) {
+  .header {
+    padding: 3.5rem clamp(1rem, 4vw, 1.5rem) 0;
+  }
+
+  .timeline {
+    justify-content: flex-start;
+    padding-top: 1.2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .snakeLine { display: none; }
+
+  .entries {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .entry {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .dot {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+  }
+
+  .dot::after { display: none; }
+
+  .card { padding-top: 0; }
+
+  .company  { font-size: 1.1rem; }
+  .bullets  { max-height: none; overflow: visible; }
+  .bullet   { font-size: 0.88rem; }
+  .stack    { display: none; }
+}
+
+/* ── Tablet (768–1023px) ────────────────────────── */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .header   { padding-top: clamp(1.5rem, 5vh, 3rem); }
+  .company  { font-size: 1.3rem; }
+  .entries  { gap: 1.5rem; }
+}
