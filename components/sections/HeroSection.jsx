@@ -146,9 +146,10 @@ export default function HeroSection() {
           <button type="button" className={styles.viewBtn} onClick={handleViewProjects}>
             View Projects <FiArrowUpRight />
           </button>
-          <a href="/assets/Vapt_Resume-1.pdf" download="Raja_Mourya_Resume_2026.pdf" className={styles.cvBtn}>
-            <FiDownload size={14} aria-hidden="true" /> Download CV
-          </a>
+          <a href="/assets/Raja_Mourya_Cybersecurity_Resume.pdf" download="Raja_Mourya_Cybersecurity_Resume.pdf" className={styles.cvBtn}>
+  <FiDownload size={14} aria-hidden="true" /> Download CV
+</a>
+          
         </div>
 
         {/* Horizontal Social Icons */}
