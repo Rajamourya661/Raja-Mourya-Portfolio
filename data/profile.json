@@ -152,7 +152,24 @@
       "image": "/assets/ai-bughunter.png",
       "tech": ["Python", "Burp Suite", "OWASP ZAP", "FastAPI", "Docker", "JSON Reporting"],
       "desc": "Developed an automated penetration testing and vulnerability assessment framework. Implemented detection modules for 55+ vulnerability types including SQLi, XSS, IDOR, SSRF, JWT issues, GraphQL flaws, and cloud misconfigurations. Integrated adaptive rate limiting, scope enforcement, and Burp/ZAP proxy support."
-    }
+    },
+    
+    {"id": 3,
+        "title": "Active Directory Security Lab",
+        "subtitle": "Active Directory Security Assessment Lab · 2026",
+        "type": "Red Team Project",
+        "link": "https://github.com/Rajamourya661/active-directory-security-lab",
+        "image": "/assets/Active Directory Security Lab.png",
+        "tech": [
+          "Active Directory",
+          "Windows Server",
+          "BloodHound",
+          "PowerView",
+          "Kerberoasting",
+          "Privilege Escalation"
+        ],
+        "desc": "Built a complete Active Directory security lab to simulate enterprise environments and perform enumeration, privilege escalation, attack path analysis and Kerberoasting."
+      }
   ],
   "research": [
     {
