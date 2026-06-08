@@ -162,3 +162,26 @@
     padding: 1rem;
   }
 }
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.verifyLink {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #eab308;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  opacity: 0.72;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.verifyLink:hover {
+  opacity: 1;
+  transform: translateX(2px);
+}

@@ -2,9 +2,12 @@
 
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
+import dynamic from 'next/dynamic'
 import { gsap } from '@/lib/gsap'
 import profile from '@/data/profile.json'
 import styles from '@/styles/sections/WorkExperienceSection.module.css'
+
+const WorkExpParticles = dynamic(() => import('@/components/three/WorkExpParticles'), { ssr: false })
 
 const EXPS = profile.experience
 
@@ -109,6 +112,8 @@ export default function WorkExperienceSection() {
           className={styles.bgImgEl}
         />
       </div>
+
+      <WorkExpParticles />
 
       <div className={styles.header}>
         <span className={styles.label}>Work Experience</span>

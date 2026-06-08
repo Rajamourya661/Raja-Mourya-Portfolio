@@ -110,7 +110,20 @@ export default function AchievementsSection() {
                 </div>
               )}
               <div className={styles.cardContent}>
-                <span className={styles.platform}>{item.platform}</span>
+                <div className={styles.cardHeader}>
+                  <span className={styles.platform}>{item.platform}</span>
+                  {profile.socials.find(s => s.label.toLowerCase() === item.platform.toLowerCase()) && (
+                    <a 
+                      href={profile.socials.find(s => s.label.toLowerCase() === item.platform.toLowerCase()).href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.verifyLink}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      Verify Page →
+                    </a>
+                  )}
+                </div>
                 <h3 className={styles.cardTitle}>{item.title}</h3>
                 <p className={styles.desc}>{item.desc}</p>
               </div>
