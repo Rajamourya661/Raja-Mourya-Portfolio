@@ -9,13 +9,14 @@ import AboutSection          from '@/components/sections/AboutSection'
 import ProjectsSection       from '@/components/sections/ProjectsSection'
 import WorkExperienceSection from '@/components/sections/WorkExperienceSection'
 import AchievementsSection   from '@/components/sections/AchievementsSection'
+import ResearchSection       from '@/components/sections/ResearchSection'
 import PublicationsFooterSection from '@/components/sections/PublicationsFooterSection'
 import ScreenLoader from '@/components/sections/ScreenLoader'
 import profile               from '@/data/profile.json'
 
-// Snap: 0=video 1=hero 2=about 3..4=projects 5=work-exp 6=achievements 7..8=publications+interstitial 9=footer
 const PROJECT_SLIDES = profile.projects.length
-const TOTAL          = 8 + PROJECT_SLIDES  // 10
+const HAS_RESEARCH   = profile.research && profile.research.length > 0
+const TOTAL          = 8 + (HAS_RESEARCH ? 1 : 0) + PROJECT_SLIDES  // dynamically adjusted
 
 export default function Home() {
   const mainRef        = useRef(null)
@@ -235,6 +236,7 @@ export default function Home() {
           <WorkExperienceSection />
           <section id="achievements-anchor" style={{height:0,overflow:'hidden'}} />
           <AchievementsSection />
+          {HAS_RESEARCH && <ResearchSection />}
           <PublicationsFooterSection />
         </div>
       </main>
