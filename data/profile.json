@@ -17,6 +17,24 @@
   },
   "available": true,
   "bio": "I am a Freelance Cybersecurity Consultant specializing in Vulnerability Assessment and Penetration Testing (VAPT) and Digital Forensics. I help organizations identify and fix security flaws before attackers can exploit them. With practical experience from the Cyber Crime Police Station and high global rankings on TryHackMe (Top 1%), I focus on delivering actionable security solutions to protect sensitive data.",
+  "philosophy": [
+    {
+      "title": "Decision Making",
+      "text": "I prioritize signal over noise. My value lies in filtering false positives, chaining low-severity misconfigurations into critical attack paths, and focusing on realistic business threats."
+    },
+    {
+      "title": "Risk Prioritization",
+      "text": "Not all critical CVSS scores equal a critical business risk. I contextualize vulnerabilities based on discoverability, exploitability, and the underlying asset's value."
+    },
+    {
+      "title": "Validation Approach",
+      "text": "I do not submit tool output. Every finding in my reports is manually validated with a custom Proof of Concept (PoC) to definitively prove impact."
+    },
+    {
+      "title": "Reporting Strategy",
+      "text": "I write dual-audience reports: high-level business risk summaries for the C-suite, and highly technical, step-by-step reproduction guides for engineering teams."
+    }
+  ],
   "stats": [
     { "value": "Top 1%",  "label": "TryHackMe Global" },
     { "value": "Top 3%", "label": "HackTheBox Global" },

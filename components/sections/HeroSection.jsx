@@ -46,6 +46,7 @@ export default function HeroSection() {
   const statsRef       = useRef(null)
   const taglineCardRef = useRef(null)
   const availCardRef   = useRef(null)
+  const dashCardRef    = useRef(null)
   const socialRef      = useRef(null)
 
   function handleViewProjects() {
@@ -65,7 +66,7 @@ export default function HeroSection() {
       pillsRef.current, ctaBtnRef.current, statsRef.current,
     ].filter(Boolean)
 
-    const fadeX = [taglineCardRef.current, availCardRef.current].filter(Boolean)
+    const fadeX = [taglineCardRef.current, availCardRef.current, dashCardRef.current].filter(Boolean)
 
     gsap.set(fadeY, { opacity: 0, y: 30 })
     gsap.set(fadeX, { opacity: 0, x: 20 })
@@ -83,6 +84,7 @@ export default function HeroSection() {
       .to(statsRef.current,       { opacity: 1, y: 0, duration: 0.5,  ease: 'power2.out' }, '-=0.2')
       .to(taglineCardRef.current, { opacity: 1, x: 0, duration: 0.5,  ease: 'power2.out' }, '-=0.5')
       .to(availCardRef.current,   { opacity: 1, x: 0, duration: 0.5,  ease: 'power2.out' }, '-=0.3')
+      .to(dashCardRef.current,    { opacity: 1, x: 0, duration: 0.5,  ease: 'power2.out' }, '-=0.3')
       .to(socialRef.current,      { opacity: 1, x: 0, duration: 0.5,  ease: 'power2.out' }, '-=0.4')
 
     const observer = new IntersectionObserver(
@@ -204,6 +206,16 @@ export default function HeroSection() {
             <p className={styles.locationLine}>Available {profile.location.availability}</p>
           </div>
         )}
+
+        <div ref={dashCardRef} className={styles.dashCard}>
+          <div className={styles.dashHeader}>Exec Briefing</div>
+          <div className={styles.dashList}>
+            <span className={styles.dashItem}><strong>Target:</strong> VAPT / AppSec</span>
+            <span className={styles.dashItem}><strong>Core:</strong> Burp, Kali, AD, Python</span>
+            <span className={styles.dashItem}><strong>Exp:</strong> Gov Cyber Cell VAPT</span>
+            <span className={styles.dashItem}><strong>Extra:</strong> Published Researcher</span>
+          </div>
+        </div>
       </div>
 
     </section>

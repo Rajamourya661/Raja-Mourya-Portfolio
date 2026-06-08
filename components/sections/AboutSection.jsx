@@ -8,8 +8,9 @@ import { FiTarget, FiShield } from 'react-icons/fi'
 import profile from '@/data/profile.json'
 import styles from '@/styles/sections/AboutSection.module.css'
 
-const BIO      = profile.bio
-const WHO_ITEMS = profile.skills
+const BIO        = profile.bio
+const WHO_ITEMS  = profile.skills
+const PHILOSOPHY = profile.philosophy || []
 
 const ICON_MAP = {
   GitHub: FaGithub,
@@ -30,6 +31,7 @@ export default function AboutSection() {
   const photoRef    = useRef(null)
   const contentRef  = useRef(null)
   const socialsRef  = useRef(null)
+  const philGridRef = useRef(null)
   const intervalRef = useRef(null)
 
   const [typed, setTyped] = useState(0)
@@ -48,10 +50,12 @@ export default function AboutSection() {
       clearInterval(intervalRef.current)
       gsap.killTweensOf(photoRef.current)
       gsap.killTweensOf(contentRef.current)
+      if (philGridRef.current) gsap.killTweensOf(philGridRef.current.children)
       const socialIcons = socialsRef.current?.querySelectorAll('a') ?? []
       gsap.killTweensOf(socialIcons)
       gsap.set(photoRef.current,   { opacity: 0, x: -50 })
       gsap.set(contentRef.current, { opacity: 0, y:  40 })
+      if (philGridRef.current) gsap.set(philGridRef.current.children, { opacity: 0, y: 20 })
       gsap.set(socialIcons, { opacity: 0, y: 20 })
       setTyped(0)
       setDone(false)
@@ -71,6 +75,10 @@ export default function AboutSection() {
         if (i >= BIO.length) {
           clearInterval(intervalRef.current)
           setDone(true)
+          if (philGridRef.current) {
+            gsap.to(philGridRef.current, { opacity: 1, duration: 0.1 })
+            gsap.to(philGridRef.current.children, { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: 'power2.out' })
+          }
         }
       }, 16)
     }
@@ -160,6 +168,18 @@ export default function AboutSection() {
             ))}
           </p>
         </div>
+
+        {/* How I Think About Security */}
+        {PHILOSOPHY.length > 0 && (
+          <div ref={philGridRef} className={styles.philGrid}>
+            {PHILOSOPHY.map((item, i) => (
+              <div key={i} className={styles.philCard}>
+                <h3 className={styles.philTitle}>{item.title}</h3>
+                <p className={styles.philText}>{item.text}</p>
+              </div>
+            ))}
+          </div>
+        )}
 
       </div>
     </section>

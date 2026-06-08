@@ -249,13 +249,46 @@
 }
 
 .taglineCard,
-.availCard {
+.availCard,
+.dashCard {
   background: rgba(15, 23, 42, 0.75);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 1rem;
   padding: 1rem 1.2rem;
+}
+
+.dashHeader {
+  font-family: var(--font-baloo), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 0.3rem;
+}
+
+.dashList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.dashItem {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  line-height: 1.4;
+  display: flex;
+  gap: 0.3rem;
+  align-items: flex-start;
+}
+
+.dashItem strong {
+  color: var(--text-dark);
 }
 
 .taglineText {

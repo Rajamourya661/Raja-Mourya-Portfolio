@@ -1,17 +1,18 @@
 .section {
-  position: sticky;
-  top: 0;
-  height: 100vh;
+  position: relative;
+  height: 200vh;
   z-index: 3;
   background: #fff;
   display: grid;
   grid-template-columns: 30% 70%;
-  overflow: hidden;
 }
 
 /* ── Left column ───────────────────────────── */
 
 .photoCol {
+  position: sticky;
+  top: 0;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -192,6 +193,48 @@
   50%       { opacity: 0; }
 }
 
+/* ── Philosophy Section ──────────────────────── */
+
+.philGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  opacity: 0; /* Animated in via GSAP */
+}
+
+.philCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.philCard:hover {
+  transform: translateY(-2px);
+  border-color: rgba(247, 147, 30, 0.3);
+}
+
+.philTitle {
+  font-family: var(--font-baloo), sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+
+.philText {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #333;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
 @media (max-width: 767px) {
   .content {
     justify-content: start;
@@ -200,7 +243,7 @@
   .section {
     grid-template-columns: 1fr;
     grid-template-rows: 60svh 1fr;
-    height: 100svh;
+    height: 200vh;
     min-height: -webkit-fill-available;
     overflow: hidden;
   }
@@ -210,15 +253,19 @@
     align-items: flex-end;
     gap: 0.75rem;
     overflow: visible;
+    position: sticky;
+    top: 0;
+    height: 60svh;
   }
   .photoWrap    { flex: 1; max-height: 100%; align-self: stretch; height: 100%; }
   .socials      { flex-direction: column; margin-top: 0; gap: 0.4rem; }
   .socialLink   { width: 2rem; height: 2rem; font-size: 1rem; }
-  .content      { padding: 1rem 1.25rem 0.75rem; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+  .content      { padding: 1rem 1.25rem 0.75rem; }
   .bio          { font-size: clamp(0.72rem, 3vw, 0.95rem); }
   .marqueeWrap  { margin-bottom: 0.6rem; }
   .whoLabel     { font-size: 0.8rem; margin-bottom: 0.3rem; }
   .signature    { font-size: 3rem; bottom: -1rem; right: -0.5rem; }
+  .philGrid     { grid-template-columns: 1fr; gap: 1rem; }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {

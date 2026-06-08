@@ -16,7 +16,8 @@ import profile               from '@/data/profile.json'
 
 const PROJECT_SLIDES = profile.projects.length
 const HAS_RESEARCH   = profile.research && profile.research.length > 0
-const TOTAL          = 8 + (HAS_RESEARCH ? 1 : 0) + PROJECT_SLIDES  // dynamically adjusted
+const ABOUT_SLIDES   = 1 // AboutSection is 200vh tall (2 steps)
+const TOTAL          = 8 + ABOUT_SLIDES + (HAS_RESEARCH ? 1 : 0) + PROJECT_SLIDES  // dynamically adjusted
 
 export default function Home() {
   const mainRef        = useRef(null)
